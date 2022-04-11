@@ -1,8 +1,33 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
-function App() {
+export default function App() {
+  return (
+    <Router>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
+      <hr />
+      <Routes>
+        <Route path="/" element={<TextGizmo />}></Route>
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <h2>About</h2>
+      <p>hello world</p>
+    </div>
+  );
+}
+
+function TextGizmo() {
   const [inputContent, setInputContent] = useState("");
   return (
     <div className="App">
@@ -31,5 +56,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
