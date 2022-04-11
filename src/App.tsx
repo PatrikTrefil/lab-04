@@ -39,7 +39,7 @@ export default function App() {
 function Increaser(props: CounterProp) {
   return (
     <div className="App">
-      <h2>Increaser</h2>
+      <h1>Increaser</h1>
       <p>Current count: {props.counter}</p>
       <Button
         variant="contained"
@@ -53,7 +53,7 @@ function Increaser(props: CounterProp) {
 function Decreaser(props: CounterProp) {
   return (
     <div className="App">
-      <h2>Decreaser</h2>
+      <h1>Decreaser</h1>
       <p>Current count: {props.counter}</p>
       <Button
         variant="contained"
@@ -68,7 +68,7 @@ function Decreaser(props: CounterProp) {
 function About() {
   return (
     <div className="App">
-      <h2>About</h2>
+      <h1>About</h1>
       <p>hello world</p>
     </div>
   );
