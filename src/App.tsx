@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 type CounterProp = {
   counter: number;
   setCounter: Function;
 };
+
 export default function App() {
   const [counter, setCounter] = useState(0);
   return (
@@ -35,30 +38,36 @@ export default function App() {
 
 function Increaser(props: CounterProp) {
   return (
-    <div>
+    <div className="App">
       <h2>Increaser</h2>
       <p>Current count: {props.counter}</p>
-      <button onClick={() => props.setCounter(props.counter + 1)}>
+      <Button
+        variant="contained"
+        onClick={() => props.setCounter(props.counter + 1)}
+      >
         Increase counter
-      </button>
+      </Button>
     </div>
   );
 }
 function Decreaser(props: CounterProp) {
   return (
-    <div>
+    <div className="App">
       <h2>Decreaser</h2>
       <p>Current count: {props.counter}</p>
-      <button onClick={() => props.setCounter(props.counter - 1)}>
+      <Button
+        variant="contained"
+        onClick={() => props.setCounter(props.counter - 1)}
+      >
         Decrease counter
-      </button>
+      </Button>
     </div>
   );
 }
 
 function About() {
   return (
-    <div>
+    <div className="App">
       <h2>About</h2>
       <p>hello world</p>
     </div>
@@ -74,22 +83,26 @@ function TextGizmo() {
           {inputContent}
         </label>
         <br />
-        <input
-          type="text"
-          name="inputText"
-          id="inputText"
-          value={inputContent}
-          onChange={(e) => setInputContent(e.target.value)}
-        />
-        <button
-          id="clearBtn"
-          onClick={(e) => {
-            e.preventDefault();
-            setInputContent("");
-          }}
-        >
-          Clear
-        </button>
+        <div className="vertical-centering">
+          <TextField
+            variant="outlined"
+            type="text"
+            name="inputText"
+            id="inputText"
+            value={inputContent}
+            onChange={(e) => setInputContent(e.target.value)}
+          />
+          <Button
+            variant="contained"
+            id="clearBtn"
+            onClick={(e) => {
+              e.preventDefault();
+              setInputContent("");
+            }}
+          >
+            Clear
+          </Button>
+        </div>
       </form>
     </div>
   );
